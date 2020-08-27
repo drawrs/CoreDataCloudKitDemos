@@ -22,7 +22,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                         <items>
                                             <navigationItem leftItemsSupplementBackButton="YES" id="kKJ-1h-7dD">
-                                                <barButtonItem key="rightBarButtonItem" systemItem="add" id="q42-Cn-7VO"/>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="add" id="q42-Cn-7VO">
+                                                    <connections>
+                                                        <action selector="addTapped:" destination="BYZ-38-t0r" id="9uC-7i-Nmh"/>
+                                                    </connections>
+                                                </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>

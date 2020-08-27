@@ -12,6 +12,7 @@ import CoreData
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
     // Reference to managed object context
     let context = NSManagedObjectContext()
     
@@ -29,6 +30,25 @@ class ViewController: UIViewController {
     func fetchPeople() {
         
     }
+    
+    @IBAction func addTapped(_ sender: Any) {
+        // MARK: Create Alert
+        let alert = UIAlertController(title: "Add Person", message: "What is their name?", preferredStyle: .alert)
+        alert.addTextField()
+        
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+            guard let textField = alert.textFields?[0] else {return}
+            
+            // TODO: Create a person object
+            
+            // TODO: Save the data
+            
+            // TODO: Re-fetch the data
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 
@@ -40,6 +60,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell")
+        
+        cell?.textLabel?.text = "Placeholder"
         
         return cell!
     }

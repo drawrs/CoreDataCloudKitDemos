@@ -4,7 +4,7 @@
 //
 //  Created by Rizal Hilman on 27/08/20.
 //  Copyright © 2020 Rizal Hilman. All rights reserved.
-//
+//  This is a starter project
 
 import UIKit
 import CoreData

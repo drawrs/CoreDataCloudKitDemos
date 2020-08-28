@@ -13,10 +13,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    // Reference to managed object context
+    // MARK: Reference to managed object context
     let context = NSManagedObjectContext()
     
-    // Data for the table
+    // MARK: Data for the table
     var items: [Person]?
     
     override func viewDidLoad() {
@@ -25,9 +25,12 @@ class ViewController: UIViewController {
     
         tableView.delegate = self
         tableView.dataSource = self
+        
+        fetchPeople()
     }
     
     func fetchPeople() {
+        // MARK: Load person datas from coredata
         
     }
     
@@ -47,6 +50,7 @@ class ViewController: UIViewController {
             
         }))
         
+        // MARK: Show alert
         self.present(alert, animated: true, completion: nil)
     }
 }
@@ -66,5 +70,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // MARK: Create swipe action
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            // TODO: Which person to remove
+            
+            // TODO: Remove the person
+            
+            // TODO: Save the data
+            
+            // TODO: Re-fetch the data
+            
+        }
+        
+        // MARK: Return swipe actions
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 }

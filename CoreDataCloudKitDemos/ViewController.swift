@@ -12,11 +12,11 @@ import CoreData
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    // Reference to managed object context
+    // MARK: Reference to managed object context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    // Data for the table
-    var items:[Person]?
+    // MARK: Data for the table
+    var items: [Person]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,17 @@ class ViewController: UIViewController {
     
         tableView.delegate = self
         tableView.dataSource = self
+        
+        fetchPeople()
     }
     
     func fetchPeople() {
+        // MARK: Load person datas from coredata
         do {
             self.items = try context.fetch(Person.fetchRequest())
+            
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.tableView.reloadData() // Reload table view
             }
         } catch {
             print(error)
@@ -63,6 +67,7 @@ class ViewController: UIViewController {
             self.fetchPeople()
         }))
         
+        // MARK: Show alert
         self.present(alert, animated: true, completion: nil)
     }
 }
@@ -84,5 +89,27 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // MARK: Create swipe action
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            // TODO: Which person to remove
+            let personToRemove = self.items![indexPath.row]
+            
+            // TODO: Remove the person
+            self.context.delete(personToRemove)
+            
+            // TODO: Save the data
+            do {
+                try self.context.save()
+            } catch {
+                print(error)
+            }
+            
+            // TODO: Re-fetch the data
+            self.fetchPeople()
+        }
+        
+        // MARK: Return swipe actions
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 }

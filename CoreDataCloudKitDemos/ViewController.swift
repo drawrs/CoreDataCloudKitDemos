@@ -26,11 +26,29 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         fetchPeople()
+        
+//        relationshipDemo()
+//        fetchFamily()
     }
     
     func fetchPeople() {
         // MARK: Load person datas from coredata
         do {
+            
+//            // MARK: Filtering & Sorting
+//            let request = Person.fetchRequest() as NSFetchRequest<Person>
+//
+//            // Set filter
+//            let predicate = NSPredicate(format: "name CONTAINS %@", "Seto")
+//            request.predicate = predicate
+//
+//            // Set sorting
+//            let sort = NSSortDescriptor(key: "name", ascending: true)
+//            request.sortDescriptors = [sort]
+//
+//            self.items = try context.fetch(request)
+            
+            // MARK: Fetch person entity
             self.items = try context.fetch(Person.fetchRequest())
             
             DispatchQueue.main.async {
@@ -69,6 +87,42 @@ class ViewController: UIViewController {
         
         // MARK: Show alert
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: Relationship
+    func relationshipDemo(){
+        // Create a family
+        let family = Family(context: context)
+        family.name = "Keluarga Matahari"
+        
+        
+        // Create a person
+        let person = Person(context: context)
+        person.name = "Ahmad"
+        
+//        person.family = family // 1st way
+        family.addToPeople(person) // 2nd way
+        
+        // Save context
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchFamily() {
+        do {
+            let families = try context.fetch(Family.fetchRequest()) as [Family]
+            for family in families {
+                let persons = family.people?.allObjects as! [Person]
+                for person in persons {
+                    print(person.name)
+                }
+            }
+        } catch {
+            print(error)
+        }
     }
 }
 
@@ -116,6 +170,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Selected Person
         let person = self.items![indexPath.row]
+        
+//        // To see family relationship
+//        person.family.map {
+//            print($0.name)
+//        }
         
         // Create alert
         let alert = UIAlertController(title: "Edit Person", message: "Edit name:", preferredStyle: .alert)

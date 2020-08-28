@@ -14,8 +14,10 @@
 		361A9B7324F804B200E3B28E /* CoreDataCloudKitDemos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 361A9B7124F804B200E3B28E /* CoreDataCloudKitDemos.xcdatamodeld */; };
 		361A9B7524F804B500E3B28E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 361A9B7424F804B500E3B28E /* Assets.xcassets */; };
 		361A9B7824F804B500E3B28E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361A9B7624F804B500E3B28E /* LaunchScreen.storyboard */; };
-		361A9B8124F8067E00E3B28E /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A9B7F24F8067E00E3B28E /* Person+CoreDataClass.swift */; };
-		361A9B8724F876B700E3B28E /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A9B8524F876B700E3B28E /* Person+CoreDataProperties.swift */; };
+		36EBB48624F8940400179F62 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EBB48224F8940400179F62 /* Person+CoreDataClass.swift */; };
+		36EBB48724F8940400179F62 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EBB48324F8940400179F62 /* Person+CoreDataProperties.swift */; };
+		36EBB48824F8940400179F62 /* Family+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EBB48424F8940400179F62 /* Family+CoreDataClass.swift */; };
+		36EBB48924F8940400179F62 /* Family+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EBB48524F8940400179F62 /* Family+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +30,10 @@
 		361A9B7424F804B500E3B28E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		361A9B7724F804B500E3B28E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		361A9B7924F804B500E3B28E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		361A9B7F24F8067E00E3B28E /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
-		361A9B8524F876B700E3B28E /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		36EBB48224F8940400179F62 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		36EBB48324F8940400179F62 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		36EBB48424F8940400179F62 /* Family+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Family+CoreDataClass.swift"; sourceTree = "<group>"; };
+		36EBB48524F8940400179F62 /* Family+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Family+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +82,10 @@
 		361A9B8324F8068400E3B28E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				361A9B8524F876B700E3B28E /* Person+CoreDataProperties.swift */,
-				361A9B7F24F8067E00E3B28E /* Person+CoreDataClass.swift */,
+				36EBB48224F8940400179F62 /* Person+CoreDataClass.swift */,
+				36EBB48324F8940400179F62 /* Person+CoreDataProperties.swift */,
+				36EBB48424F8940400179F62 /* Family+CoreDataClass.swift */,
+				36EBB48524F8940400179F62 /* Family+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,12 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				361A9B8724F876B700E3B28E /* Person+CoreDataProperties.swift in Sources */,
 				361A9B7324F804B200E3B28E /* CoreDataCloudKitDemos.xcdatamodeld in Sources */,
 				361A9B6D24F804B200E3B28E /* ViewController.swift in Sources */,
-				361A9B8124F8067E00E3B28E /* Person+CoreDataClass.swift in Sources */,
+				36EBB48824F8940400179F62 /* Family+CoreDataClass.swift in Sources */,
+				36EBB48724F8940400179F62 /* Person+CoreDataProperties.swift in Sources */,
+				36EBB48624F8940400179F62 /* Person+CoreDataClass.swift in Sources */,
 				361A9B6924F804B200E3B28E /* AppDelegate.swift in Sources */,
 				361A9B6B24F804B200E3B28E /* SceneDelegate.swift in Sources */,
+				36EBB48924F8940400179F62 /* Family+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
